@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APNA COLLEGE MOD APK</title>
+  <meta name="author" content="APNA COLLEGE MOD APK" />
+  <meta name="description" content="APNA COLLEGE MOD APK — Discover premium live batches and recorded courses from Apna College for DSA, Web Development, Java, C++, Python, and Placements with free lectures and PDF notes." />
+  <meta property="og:title" content="APNA COLLEGE MOD APK" />
+  <meta property="og:description" content="All Apna College batches, lectures, and PDF study notes in one premium Cloudflare-compatible portal." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="apna-college-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- External CDN Libraries for Cloudflare Pages Compatibility -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+  <script type="module" src="notes-content.js"></script>
+  <script src="pdf-generator.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="pointer-events-none fixed inset-0 z-0 bg-dots opacity-30"></div>
+  <div class="pointer-events-none fixed left-[-5%] top-[-5%] z-0 h-[380px] w-[380px] rounded-full bg-primary-glow blur-[140px]"></div>
+  <div class="pointer-events-none fixed bottom-[-10%] right-[-5%] z-0 h-[400px] w-[400px] rounded-full bg-accent-glow blur-[140px]"></div>
+
+  <div class="app-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a class="brand-link" href="#/">
+          <img alt="Apna College Logo" class="brand-logo" src="apna-college-logo.png" />
+          <span class="brand-text">APNA<span class="text-sky">COLLEGE</span></span>
+        </a>
+        <button id="sidebar-close-btn" aria-label="Close menu" class="btn-icon mobile-only">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+          <h3 class="nav-group-title">Explore</h3>
+          <ul class="nav-links">
+            <li>
+              <a class="nav-item active" id="nav-all-batches" href="#/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>
+                <span>All Batches</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-item" id="nav-enrolled-batches" href="#/enrolled">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+                <span>Enrolled Batches</span>
+                <span class="enrolled-count-pill" id="enrolled-badge-count">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav-group">
+          <h3 class="nav-group-title">Connect</h3>
+          <ul class="nav-links">
+            <li>
+              <a href="https://t.me/learn_topper" target="_blank" rel="noopener noreferrer" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                <span>Join Telegram</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Container -->
+    <div class="main-wrapper">
+      <!-- Top Sticky Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button id="sidebar-toggle-btn" aria-label="Open menu" class="btn-icon mobile-only">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+          </button>
+          <div class="global-search-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.34-4.34"></path></svg>
+            <input id="global-search" type="search" placeholder="Search courses, batches, faculty..." autocomplete="off" />
+          </div>
+        </div>
+        <div class="header-right">
+          <span class="watermark-tag">APNA COLLEGE MOD APK</span>
+        </div>
+      </header>
+
+      <!-- App View Router Container -->
+      <main class="content-body" id="app"></main>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav">
+      <a class="mb-nav-item active" id="mb-nav-all" href="#/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>
+        <span>All</span>
+      </a>
+      <a class="mb-nav-item" id="mb-nav-enrolled" href="#/enrolled">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+        <span>Enrolled</span>
+      </a>
+      <a class="mb-nav-item" href="https://t.me/learn_topper" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+        <span>Join</span>
+      </a>
+    </nav>
+  </div>
+</body>
+</html>
