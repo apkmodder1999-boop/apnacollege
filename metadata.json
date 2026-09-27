@@ -1,0 +1,8 @@
+{
+  "name": "Apna College Batches Free — Nexthope",
+  "description": "Watch all Apna College batches free — Sigma, Delta, Alpha, Prime and AI/ML lectures with notes in a premium HLS player on Nexthope.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
