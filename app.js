@@ -55,6 +55,23 @@
   }
   updateEnrolledBadge();
 
+  // Telegram Popup logic
+  var tgPopup = document.getElementById("tgPopup");
+  var closePopupBtn = document.getElementById("closePopup");
+  var joinBtn = document.getElementById("joinBtn");
+
+  if (closePopupBtn && tgPopup) {
+    closePopupBtn.addEventListener("click", function () {
+      tgPopup.classList.remove("active");
+    });
+  }
+
+  if (joinBtn && tgPopup) {
+    joinBtn.addEventListener("click", function () {
+      tgPopup.classList.remove("active");
+    });
+  }
+
   // Mobile Sidebar Toggle
   if (sidebarToggleBtn && sidebar) {
     sidebarToggleBtn.addEventListener("click", function () {
